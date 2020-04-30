@@ -39,7 +39,7 @@ JSB.newAddon = function(mainPath){
       if(!self.autotitle)return;
       var noteid = sender.userInfo.noteid;
       var note = Database.sharedInstance().getNoteById(noteid);
-      if(note && note.excerptText && note.excerptText.length > 0 && note.excerptText.length <= 250){
+      if(note && note.excerptText && note.excerptText.length > 0 && note.excerptText.length <= 250 && !note.groupNoteId){
         var timerCount = 0;
         NSTimer.scheduledTimerWithTimeInterval(1,true,function(timer){
           var text = note.excerptText.split("**").join("");
